@@ -1,0 +1,22 @@
+M ubuntu:22.04
+
+
+ENV TZ=Europe/Warsaw
+
+RUN apt-get update
+
+RUN apt-get install -y vim git curl zip
+
+RUN useradd -ms /bin/bash student
+RUN adduser student sudo
+
+USER student
+WORKDIR /home/student/
+
+EXPOSE 8080
+VOLUME /home/student/
+
+CMD /bin/bash
+
+
+
