@@ -1,22 +1,36 @@
-M ubuntu:22.04
+FROM ubuntu:24.04
 
 
 ENV TZ=Europe/Warsaw
 
-RUN apt-get update
 
-RUN apt-get install -y vim git curl zip
+# 1. Python w wersji 3.10
+RUN add-apt-repository ppa:deadsnakes/ppa -y && \
+    apt-get update && apt-get install -y python3.10 python3-pip && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN useradd -ms /bin/bash student
-RUN adduser student sudo
+# 2. Java wersja 8 i Kotlin
+RUN apt update && apt install -y openjdk-8-jdk curl && \
+    curl -sS https://get.sdkman.io | bash && \
+    bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk install kotlin" && \
+    rm -rf /var/lib/apt/lists/*
 
-USER student
-WORKDIR /home/student/
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+ENV PATH "$JAVA_HOME/bin:$PATH"
 
-EXPOSE 8080
-VOLUME /home/student/
+# Instalacja Gradle
+RUN wget https://services.gradle.org/distributions/gradle-8.5-bin.zip -P /tmp && \
+    unzip -d /opt/gradle /tmp/gradle-8.5-bin.zip && \
+    rm /tmp/gradle-8.5-bin.zip
+    ENV GRADLE_HOME /opt/gradle/gradle-8.5
+    ENV PATH "$GRADLE_HOME/bin:$PATH"
 
-CMD /bin/bash
+WORKDIR /app
+COPY . /app
 
+RUN gradle build --no-daemon
+
+
+CMD gradle run --no-daemon
 
 
