@@ -1,36 +1,47 @@
-FROM ubuntu:24.04
+# 3.0 obraz ubuntu z Pythonem w wersji 3.10
+# 3.5 obraz ubuntu:24.02 z Javą w wersji 8 oraz Kotlinem
+# 4.0 do powyższego należy dodać najnowszego Gradle’a oraz paczkę JDBC
+# SQLite w ramach projektu na Gradle (build.gradle)
+# 4.5 stworzyć przykład typu HelloWorld oraz uruchomienie aplikacji
+# przez CMD oraz gradle
+# 5.0 dodać konfigurację docker-compose
+
+FROM ubuntu:22.04
 
 
 ENV TZ=Europe/Warsaw
 
+# 1. Python
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    add-apt-repository -y ppa:deadsnakes/ppa && \
+    apt-get update && \
+    apt-get install -y python3.10 python3-pip
 
-# 1. Python w wersji 3.10
-RUN add-apt-repository ppa:deadsnakes/ppa -y && \
-    apt-get update && apt-get install -y python3.10 python3-pip && \
-    rm -rf /var/lib/apt/lists/*
+# 2. Java & Kotlin
+RUN apt-get install -y openjdk-8-jdk
 
-# 2. Java wersja 8 i Kotlin
-RUN apt update && apt install -y openjdk-8-jdk curl && \
-    curl -sS https://get.sdkman.io | bash && \
-    bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk install kotlin" && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get install -y wget unzip && \
+    wget https://github.com/JetBrains/kotlin/releases/download/v1.9.0/kotlin-compiler-1.9.0.zip && \
+    unzip kotlin-compiler-1.9.0.zip -d /opt/kotlin && \
+    rm kotlin-compiler-1.9.0.zip
 
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
-ENV PATH "$JAVA_HOME/bin:$PATH"
+# 3. Gradle & JDBC SQLite
+RUN wget https://services.gradle.org/distributions/gradle-8.3-bin.zip -O /tmp/gradle.zip && \
+    unzip /tmp/gradle.zip -d /opt/gradle && \
+    rm /tmp/gradle.zip
 
-# Instalacja Gradle
-RUN wget https://services.gradle.org/distributions/gradle-8.5-bin.zip -P /tmp && \
-    unzip -d /opt/gradle /tmp/gradle-8.5-bin.zip && \
-    rm /tmp/gradle-8.5-bin.zip
-    ENV GRADLE_HOME /opt/gradle/gradle-8.5
-    ENV PATH "$GRADLE_HOME/bin:$PATH"
+RUN apt-get install -y sqlite3 libsqlite3-dev
+
+
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ENV KOTLIN_HOME=/opt/kotlin/kotlinc
+ENV GRADLE_HOME=/opt/gradle/gradle-8.3
+ENV PATH="$JAVA_HOME/bin:$KOTLIN_HOME/bin:$GRADLE_HOME/bin:$PATH"
 
 WORKDIR /app
-COPY . /app
+COPY . .
 
 RUN gradle build --no-daemon
 
-
-CMD gradle run --no-daemon
-
-
+CMD gradle run && python3 --version && java -version && kotlinc -version
