@@ -4,13 +4,28 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index()
+GET     /                           controllers.ItemController.index()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
-GET     /items                      controllers.HomeController.getAll
-GET     /items/:id                  controllers.HomeController.getById(id: Long)
-POST    /items                      controllers.HomeController.create
-PUT     /items/:id                  controllers.HomeController.update(id: Long)
-DELETE  /items/:id                  controllers.HomeController.delete(id: Long)
+# Items Controller
+GET     /items                      controllers.ItemController.getAll
+GET     /items/:id                  controllers.ItemController.getById(id: Long)
+POST    /items                      controllers.ItemController.create
+PUT     /items/:id                  controllers.ItemController.update(id: Long)
+DELETE  /items/:id                  controllers.ItemController.delete(id: Long)
+
+# Categories Controller
+GET     /categories                 controllers.CategoryController.getAll
+GET     /categories/:id             controllers.CategoryController.getById(id: Long)
+POST    /categories                 controllers.CategoryController.create
+PUT     /categories/:id             controllers.CategoryController.update(id: Long)
+DELETE  /categories/:id             controllers.CategoryController.delete(id: Long)
+
+# Cart Controller
+GET     /cart                       controllers.CartController.getAll
+GET     /cart/:id                   controllers.CartController.getById(id: Long)
+POST    /cart                       controllers.CartController.create
+PUT     /cart/:id                   controllers.CartController.update(id: Long)
+DELETE  /cart/:id                   controllers.CartController.delete(id: Long)

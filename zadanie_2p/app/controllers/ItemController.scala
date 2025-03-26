@@ -19,7 +19,7 @@ object Item {
 }
 
 @Singleton
-class HomeController @Inject()(val controllerComponents: ControllerComponents) extends BaseController {
+class ItemController @Inject()(val controllerComponents: ControllerComponents) extends BaseController {
 
   /**
    * Create an Action to render an HTML page.
