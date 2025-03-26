@@ -45,3 +45,4 @@ COPY . .
 RUN gradle build --no-daemon
 
 CMD gradle run && python3 --version && java -version && kotlinc -version
+ 
