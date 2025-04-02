@@ -17,6 +17,7 @@ przez CMD oraz gradle
 ✅ 5.0 dodać konfigurację docker-compose
 
 Link do obrazu: https://hub.docker.com/r/danielbros/zadanie1
+
 Kod: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_1
 
 ### Zadanie 2: Scala
