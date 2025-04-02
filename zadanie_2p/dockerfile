@@ -1,0 +1,12 @@
+FROM openjdk:11-jre-slim
+
+WORKDIR /app
+
+COPY target/universal/zadanie_2p-1.0-SNAPSHOT.zip /app/zadanie_2p.zip
+
+RUN apt-get update && apt-get -y install unzip && unzip zadanie_2p.zip && rm zadanie_2p.zip && chmod +x zadanie_2p-1.0-SNAPSHOT/bin/zadanie_2p
+
+EXPOSE 9000
+
+CMD ["./zadanie_2p-1.0-SNAPSHOT/bin/zadanie_2p", "-Dhttp.port=9000"]
+

@@ -42,7 +42,7 @@ class CartController @Inject()(val controllerComponents: ControllerComponents) e
           carts += newCart
           Created(Json.toJson(newCart))
         }
-      case JsError(errors) =>
+      case JsError(_) =>
         BadRequest(Json.obj("error" -> "invalid json"))
     }
   }
@@ -56,7 +56,7 @@ class CartController @Inject()(val controllerComponents: ControllerComponents) e
             carts(index) = updatedCart
             Ok(Json.toJson(updatedCart))
         }
-      case JsError(errors) =>
+      case JsError(_) =>
         BadRequest(Json.obj("error" -> "invalid json"))
     }
   }
