@@ -43,9 +43,12 @@ Kod: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_2p
 
 ✅ 4.5 Zwróci listę produktów wg żądanej kategorii
 
-❌ 5.0 Aplikacja obsłuży dodatkowo jedną z platform: Slack, Messenger, Webex (work in progress)
+✅ 5.0 Aplikacja obsłuży dodatkowo jedną z platform: Slack, Messenger, Webex
 
 Kod: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_3
+
+### Zadanie 3: ??
+
 
 
 
