@@ -1,5 +1,6 @@
 package com.example
 
+import com.example.telegram.TelegramMain
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
@@ -10,7 +11,11 @@ import kotlinx.coroutines.launch
 import java.util.Properties
 
 fun main(args: Array<String>) {
+    // DiscordBot
     EngineMain.main(args)
+
+    // TelegramBot
+    // TelegramMain()
 }
 
 val props = Properties().apply {

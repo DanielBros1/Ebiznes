@@ -19,6 +19,7 @@ application {
 
 repositories {
     mavenCentral()
+    maven { url = uri("https://jitpack.io") } // Dodanie repozytorium JitPack
 }
 
 dependencies {
@@ -31,10 +32,10 @@ dependencies {
     implementation("io.ktor:ktor-client-core:2.3.5")
     implementation("io.ktor:ktor-client-cio:2.3.5")
     implementation("io.ktor:ktor-client-content-negotiation:2.3.5")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.0") // lub najnowsza wersja
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.0")
     implementation("io.ktor:ktor-client-websockets:2.3.5")
 
+    implementation("org.telegram:telegrambots:6.7.0")
 
-    testImplementation("io.ktor:ktor-server-test-host")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }
