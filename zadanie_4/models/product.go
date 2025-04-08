@@ -10,3 +10,10 @@ type Product struct {
 	CategoryID  uint     `json:"category_id"`
 	Category    Category `json:"category" gorm:"foreignKey:CategoryID"`
 }
+
+// SCOPE
+func PriceLessThan(price float64) func(db *gorm.DB) *gorm.DB {
+	return func(db *gorm.DB) *gorm.DB {
+		return db.Where("price < ?", price)
+	}
+}

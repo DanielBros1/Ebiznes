@@ -46,3 +46,15 @@ func DeleteProduct(c echo.Context) error {
 	}
 	return c.JSON(http.StatusOK, map[string]string{"message": "Product deleted"})
 }
+
+// SCOPE
+func GetCheapProducts(c echo.Context) error {
+	price := 100
+	var products []models.Product
+
+	if err := database.DB.Scopes(models.PriceLessThan(float64(price))).Preload("Category").Find(&products).Error; err != nil {
+		return c.JSON(http.StatusNotFound, map[string]string{"message": "No products found"})
+	}
+
+	return c.JSON(http.StatusOK, products)
+}

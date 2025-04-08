@@ -10,4 +10,9 @@ func RegisterRoutes(e *echo.Echo) {
 	e.POST("/products", controllers.CreateProduct)
 	e.PUT("/products/:id", controllers.UpdateProduct)
 	e.DELETE("/products/:id", controllers.DeleteProduct)
+
+	e.GET("/cart", controllers.GetCard)
+
+	// SCOPE
+	e.GET("/products/cheap", controllers.GetCheapProducts)
 }
