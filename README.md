@@ -63,6 +63,8 @@ a produktem
 
 ✅ 5.0 pogrupować zapytania w gorm’owe scope'y
 
+KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_4
+
 
 
 
