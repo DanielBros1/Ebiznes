@@ -25,28 +25,16 @@ class ApiController {
         return ResponseEntity.ok("Total: $total")
     }
 
-    // CORS configuration
-//    @Bean
-//    fun corsConfig(): WebMvcConfigurer {
-//        return object : WebMvcConfigurer {
-//            override fun addCorsMappings(registry: CorsRegistry) {
-//                registry.addMapping("/**")
-//                    .allowedOrigins("http://localhost:3000")
-//                    .allowedMethods("GET", "POST", "PUT", "DELETE")
-//            }
-//        }
-//    }
-
-
+    //     CORS configuration
     @Bean
     fun corsConfig(): WebMvcConfigurer {
         return object : WebMvcConfigurer {
             override fun addCorsMappings(registry: CorsRegistry) {
                 registry.addMapping("/**")
-                    .allowedOrigins("*")  // Tymczasowo dla testów
-                    .allowedMethods("*")
-                    .allowedHeaders("*")
+                    .allowedOrigins("http://localhost:3000")
+                    .allowedMethods("GET", "POST", "PUT", "DELETE")
             }
         }
     }
 }
+
