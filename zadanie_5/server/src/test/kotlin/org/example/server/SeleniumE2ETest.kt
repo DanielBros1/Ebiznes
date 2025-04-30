@@ -25,6 +25,7 @@ class SeleniumE2ETest {
 
     @BeforeEach
     fun goToHome() {
+
         driver.get("http://localhost:3000/")
     }
 
@@ -72,7 +73,6 @@ class SeleniumE2ETest {
 
     @Test
     fun testProceedToPaymentPage() {
-        driver.findElement(By.tagName("button")).click()
         driver.findElement(By.linkText("Przejdź do koszyka")).click()
         driver.findElement(By.linkText("Przejdź do płatności")).click()
 
