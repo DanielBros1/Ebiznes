@@ -22,9 +22,20 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+
+	// Jednostkowe + API (MockMvc)
+	testImplementation("org.springframework.boot:spring-boot-starter-test") {
+		exclude(group = "org.mockito") // opcjonalnie, jeśli nie używasz Mockito
+	}
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+	testImplementation("org.seleniumhq.selenium:selenium-java:4.21.0")
+	testImplementation("org.seleniumhq.selenium:selenium-chrome-driver:4.21.0")
+	testImplementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.17.0")
 }
 
 kotlin {

@@ -15,7 +15,7 @@ const Products = ({ addToCart }) => {
     return (
         <div>
             <h2>Produkty</h2>
-            <ul>
+            <ul id="product-list">
                 {products.map((product) => (
                     <li key={product.id}>
                         {product.name} - ${product.price}

@@ -12,7 +12,7 @@ const Cart = ({ cart, setCart }) => {
             {cart.length === 0 ? (
                 <p>Twój koszyk jest pusty.</p>
             ) : (
-                <ul>
+                <ul id="cart-items">
                     {cart.map((product, index) => (
                         <li key={index}>
                             {product.name} - ${product.price}
