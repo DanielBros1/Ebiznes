@@ -75,16 +75,16 @@ KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_4
 ### Zadanie 6: Testy
 KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_6
 
-❌ 3.0 Należy stworzyć 20 przypadków testowych w CypressJS lub Selenium
+✅  3.0 Należy stworzyć 20 przypadków testowych w CypressJS lub Selenium
 (Kotlin, Python, Java, JS, Go, Scala)
 
-❌ 3.5 Należy rozszerzyć testy funkcjonalne, aby zawierały minimum 50 asercji
+✅  3.5 Należy rozszerzyć testy funkcjonalne, aby zawierały minimum 50 asercji
 
-❌ 4.0 Należy stworzyć testy jednostkowe do wybranego wcześniejszego projektu z minimum 50 asercjami
+✅  4.0 Należy stworzyć testy jednostkowe do wybranego wcześniejszego projektu z minimum 50 asercjami
 
-❌ 4.5 Należy dodać testy API, należy pokryć wszystkie endpointy z minimum jednym scenariuszem negatywnym per endpoint
+✅  4.5 Należy dodać testy API, należy pokryć wszystkie endpointy z minimum jednym scenariuszem negatywnym per endpoint
 
-❌ 5.0 Należy uruchomić testy funkcjonalne na Browserstacku
+❌  5.0 Należy uruchomić testy funkcjonalne na Browserstacku
 
 
 ### Zadanie 7: Sonar
