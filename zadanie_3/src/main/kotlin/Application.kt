@@ -14,8 +14,8 @@ fun main(args: Array<String>) {
     // DiscordBot
     EngineMain.main(args)
 
-    // TelegramBot
-    // TelegramMain()
+//     TelegramBot
+     TelegramMain()
 }
 
 val props = Properties().apply {

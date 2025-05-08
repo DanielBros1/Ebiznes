@@ -15,6 +15,10 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 @AutoConfigureMockMvc
 class ApiIntegrationTest {
 
+    companion object {
+        const val PAYMENT_ENDPOINT = "/payment"
+    }
+
     @Autowired
     lateinit var mockMvc: MockMvc
 
@@ -22,17 +26,17 @@ class ApiIntegrationTest {
     lateinit var objectMapper: ObjectMapper
 
     @Test
-    fun `GET products returns list`() {
+    fun getProductsReturnsList() {
         mockMvc.perform(get("/products"))
             .andExpect(status().isOk)
             .andExpect(jsonPath("$[0].name").value("Zapatos"))
     }
 
     @Test
-    fun `POST payment returns total`() {
+    fun postPaymentReturnsTotal() {
         val cart = listOf(Product(1, "Item", 99.99))
         mockMvc.perform(
-            post("/payment")
+            post(PAYMENT_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(cart))
         )
@@ -41,9 +45,9 @@ class ApiIntegrationTest {
     }
 
     @Test
-    fun `POST payment with empty body returns 400`() {
+    fun postPaymentWithEmptyBodyReturns400() {
         mockMvc.perform(
-            post("/payment")
+            post(PAYMENT_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("[]")
         )
@@ -52,9 +56,9 @@ class ApiIntegrationTest {
     }
 
     @Test
-    fun `POST payment with invalid JSON returns 400`() {
+    fun postPaymentWithInvalidJsonReturns400() {
         mockMvc.perform(
-            post("/payment")
+            post(PAYMENT_ENDPOINT)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"invalid\": \"json\"}")
         ).andExpect(status().isBadRequest)

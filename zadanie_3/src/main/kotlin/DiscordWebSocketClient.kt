@@ -5,7 +5,7 @@ import io.ktor.client.plugins.websocket.*
 import io.ktor.websocket.*
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
-import kotlin.random.Random
+import kotlinx.serialization.SerialName
 
 @Serializable
 data class DiscordEvent(
@@ -18,7 +18,8 @@ data class DiscordEvent(
 @Serializable
 data class DiscordMessageData(
     val content: String? = null,
-    val channel_id: String? = null,
+    @SerialName("channel_id")
+    val channelId: String? = null,
     val author: DiscordAuthor? = null
 )
 
@@ -94,7 +95,7 @@ class DiscordWebSocketClient(private val token: String) {
         val commandParts = content.substringAfter("!").trim().lowercase().split(" ")
         val command = commandParts[0]
         val argument = commandParts.getOrNull(1)
-        println("Command: $command, argument: $argument")
+        println("Command: $command, argument: $argument, author: $author")
 
 
         when (command) {

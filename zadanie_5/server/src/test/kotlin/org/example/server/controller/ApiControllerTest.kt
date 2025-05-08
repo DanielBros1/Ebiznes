@@ -9,7 +9,7 @@ class ApiControllerTest {
     private val controller = ApiController()
 
     @Test
-    fun `test getProducts returns 3 valid products with correct properties`() {
+    fun testGetProductsReturns3ValidProductsWithCorrectProperties() {
         val products = controller.getProducts()
         assertEquals(3, products.size)
         val product1 = products[0]
@@ -30,7 +30,7 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test getProducts returns 3 valid products`() {
+    fun testGetProductsReturns3ValidProducts() {
         val products = controller.getProducts();
         assertEquals(3, products.size)
         assertEquals("Zapatos", products[0].name)
@@ -43,7 +43,7 @@ class ApiControllerTest {
 
 
     @Test
-    fun `test getProducts returns unique IDs`() {
+    fun testGetProductsReturnsUniqueIDs() {
         val products = controller.getProducts()
         val ids = products.map { it.id }
         assertEquals(3, ids.distinct().size)
@@ -51,7 +51,7 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test processPayment calculates total correctly`() {
+    fun testProcessPaymentCalculatesTotalCorrectly() {
         val cart = listOf(
             Product(1, "Test1", 10.0),
             Product(2, "Test2", 15.5)
@@ -63,7 +63,7 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test getProducts returns expected content`() {
+    fun testGetProductsReturnsExpectedContent() {
         val products = controller.getProducts()
 
         val expectedNames = listOf("Zapatos", "Camisa", "Pantalones")
@@ -76,7 +76,7 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test processPayment with empty cart returns zero`() {
+    fun testProcessPaymentWithEmptyCartReturnsZero() {
         val cart = emptyList<Product>()
         val response = controller.processPayment(cart)
         assertEquals("Total: 0.0", response.body)
@@ -84,7 +84,7 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test processPayment with negative price returns correct total`() {
+    fun testProcessPaymentWithNegativePriceReturnsCorrectTotal() {
         val cart = listOf(
             Product(1, "Discount", -10.0),
             Product(2, "Item", 30.0)
@@ -94,7 +94,7 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test processPayment with floating point precision`() {
+    fun testProcessPaymentWithFloatingPointPrecision() {
         val cart = listOf(
             Product(1, "Item A", 10.123),
             Product(2, "Item B", 5.456)
@@ -104,7 +104,7 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test processPayment with zero price products`() {
+    fun testProcessPaymentWithZeroPriceProducts() {
         val cart = listOf(
             Product(1, "Proste", 0.0),
             Product(2, "Bardzo proste", 0.0)
@@ -114,7 +114,7 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test getProducts expected content using loop`() {
+    fun testGetProductsExpectedContentUsingLoop() {
         val products = controller.getProducts()
         val expectedNames = listOf("Zapatos", "Camisa", "Pantalones")
         val expectedPrices = listOf(50.0, 20.0, 30.0)
@@ -127,7 +127,7 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test processPayment with large values`() {
+    fun testProcessPaymentWithLargeValues() {
         val cart = listOf(
             Product(1, "Big", 1_000_000.0),
             Product(2, "Huge", 2_000_000.0)
@@ -137,7 +137,7 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test processPayment returns consistent response`() {
+    fun testProcessPaymentReturnsConsistentResponse() {
         val cart = listOf(
             Product(1, "X", 1.0),
             Product(2, "Y", 2.0),
@@ -151,7 +151,7 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test product model properties`() {
+    fun testProductModelProperties() {
         val product = Product(99, "Keyboard", 129.99)
         assertEquals(99, product.id)
         assertEquals("Keyboard", product.name)
@@ -159,7 +159,7 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test payment with one product`() {
+    fun testPaymentWithOneProduct() {
         val cart = listOf(Product(10, "Mouse", 49.99))
         val response = controller.processPayment(cart)
         assertEquals("Total: 49.99", response.body)
@@ -167,7 +167,7 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test payment with decimal edge cases`() {
+    fun testPaymentWithDecimalEdgeCases() {
         val cart = listOf(
             Product(1, "Item", 0.333),
             Product(2, "Item2", 0.667)
@@ -177,7 +177,7 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test product IDs are sequential`() {
+    fun testProductIDsAreSequential() {
         val products = controller.getProducts()
         assertEquals(1, products[0].id)
         assertEquals(2, products[1].id)
@@ -185,25 +185,25 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test no null products in getProducts`() {
+    fun testNoNullProductsInGetProducts() {
         val products = controller.getProducts()
         assertTrue(products.none { it == null })
     }
 
     @Test
-    fun `test product names are not blank`() {
+    fun testProductNamesAreNotBlank() {
         val products = controller.getProducts()
         assertTrue(products.all { it.name.isNotBlank() })
     }
 
     @Test
-    fun `test product prices are positive or zero`() {
+    fun testProductPricesArePositiveOrZero() {
         val products = controller.getProducts()
         assertTrue(products.all { it.price >= 0 })
     }
 
     @Test
-    fun `test multiple carts with same total return same response`() {
+    fun testMultipleCartsWithSameTotalReturnSameResponse() {
         val cart1 = listOf(Product(1, "A", 10.0), Product(2, "B", 20.0))
         val cart2 = listOf(Product(3, "C", 15.0), Product(4, "D", 15.0))
 
@@ -215,21 +215,21 @@ class ApiControllerTest {
     }
 
     @Test
-    fun `test empty product name is invalid`() {
+    fun testEmptyProductNameIsInvalid() {
         val product = Product(99, "", 20.0)
         assertEquals("", product.name)
         assertTrue(product.name.isBlank())
     }
 
     @Test
-    fun `test floating point rounding behavior`() {
+    fun testFloatingPointRoundingBehavior() {
         val cart = listOf(Product(1, "A", 0.1), Product(2, "B", 0.2))
         val response = controller.processPayment(cart)
         assertEquals("Total: 0.30000000000000004", response.body)
     }
 
     @Test
-    fun `test extremely small price`() {
+    fun testExtremelySmallPrice() {
         val cart = listOf(Product(1, "Tiny", 0.000001))
         val response = controller.processPayment(cart)
         assertTrue(response.body!!.startsWith("Total"))

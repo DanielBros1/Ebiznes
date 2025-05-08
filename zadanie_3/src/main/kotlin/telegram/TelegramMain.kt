@@ -25,6 +25,6 @@ fun loadBotConfig(): Pair<String, String> {
         val botUsername = props.getProperty("botUsername") ?: error("Brak TELEGRAM_USERNAME!")
         return Pair(botToken, botUsername)
     } else {
-        throw IllegalStateException("Nie można znaleźć pliku konfiguracyjnego.")
+        error("Nie można znaleźć pliku konfiguracyjnego.")
     }
 }

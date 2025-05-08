@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 const Products = ({ addToCart }) => {
     const [products, setProducts] = useState([]);
@@ -28,4 +30,7 @@ const Products = ({ addToCart }) => {
     );
 };
 
+Products.propTypes = {
+    addToCart: PropTypes.func.isRequired,
+}
 export default Products;

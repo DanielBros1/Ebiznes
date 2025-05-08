@@ -12,6 +12,10 @@ class SeleniumE2ETest {
     private lateinit var driver: WebDriver
     private lateinit var wait: WebDriverWait
 
+    companion object {
+        private const val GO_TO_CART_TEXT = "Przejdź do koszyka"
+    }
+
     @BeforeAll
     fun setup() {
         driver = ChromeDriver()
@@ -48,14 +52,14 @@ class SeleniumE2ETest {
         val button = wait.until { it!!.findElement(By.tagName("button")) }
         button.click()
 
-        val cartLink = driver.findElement(By.linkText("Przejdź do koszyka"))
+        val cartLink = driver.findElement(By.linkText("GO_TO_CART_TEXT"))
         cartLink.click()
 
         val cartItems = wait.until {
             it!!.findElement(By.id("cart-items")).findElements(By.tagName("li"))
         }
         assertEquals(1, cartItems.size)
-        // wyrpintuj zawartosc cartItems
+        // wyprintuj zawartosc cartItems
         for (element in cartItems) {
             println(element.text)
         }
@@ -64,7 +68,7 @@ class SeleniumE2ETest {
 
     @Test
     fun testClearCart() {
-        driver.findElement(By.linkText("Przejdź do koszyka")).click()
+        driver.findElement(By.linkText("GO_TO_CART_TEXT")).click()
         driver.findElement(By.tagName("button")).click()
 
         val emptyText = driver.findElement(By.tagName("p")).text
@@ -73,7 +77,7 @@ class SeleniumE2ETest {
 
     @Test
     fun testProceedToPaymentPage() {
-        driver.findElement(By.linkText("Przejdź do koszyka")).click()
+        driver.findElement(By.linkText("GO_TO_CART_TEXT")).click()
         driver.findElement(By.linkText("Przejdź do płatności")).click()
 
         val header = driver.findElement(By.tagName("h2")).text
@@ -82,8 +86,7 @@ class SeleniumE2ETest {
 
     @Test
     fun testPaymentProcessing() {
-//        driver.findElement(By.tagName("button")).click()
-        driver.findElement(By.linkText("Przejdź do koszyka")).click()
+        driver.findElement(By.linkText("GO_TO_CART_TEXT")).click()
         driver.findElement(By.linkText("Przejdź do płatności")).click()
         driver.findElement(By.tagName("button")).click()
 
