@@ -35,6 +35,9 @@ class ItemController @Inject()(val controllerComponents: ControllerComponents) e
     Item(3, "Item 3", "Description 3")
   )
 
+  private val NotFoundMessage = "not found"
+
+
   def getAll: Action[AnyContent] = Action {
     Ok(Json.toJson(items))
   }
@@ -42,7 +45,7 @@ class ItemController @Inject()(val controllerComponents: ControllerComponents) e
   def getById(id: Long): Action[AnyContent] = Action {
     items.find(_.id == id) match {
       case Some(item) => Ok(Json.toJson(item))
-      case None => NotFound(Json.obj("error" -> "not found"))
+      case None => NotFound(Json.obj("error" -> NotFoundMessage))
     }
   }
 
@@ -64,7 +67,7 @@ class ItemController @Inject()(val controllerComponents: ControllerComponents) e
     request.body.validate[Item] match {
       case JsSuccess(updatedItem, _) =>
         items.indexWhere(_.id == id) match {
-          case -1 => NotFound(Json.obj("error" -> "not found"))
+          case -1 => NotFound(Json.obj("error" -> NotFoundMessage))
           case i =>
             items.update(i, updatedItem)
             Ok(Json.toJson(updatedItem))
@@ -73,7 +76,7 @@ class ItemController @Inject()(val controllerComponents: ControllerComponents) e
   }
   def delete(id: Long): Action[AnyContent] = Action {
     items.indexWhere(_.id == id) match {
-      case -1 => NotFound(Json.obj("error" -> "not found"))
+      case -1 => NotFound(Json.obj("error" -> NotFoundMessage))
       case i =>
         items.remove(i)
         NoContent

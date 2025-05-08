@@ -22,6 +22,9 @@ class CategoryController @Inject()(val controllerComponents: ControllerComponent
     Category(3, "Category 3", "Description 3")
   )
 
+  private val NotFoundMessage = "not found"
+
+
   def getAll: Action[AnyContent] = Action {
     Ok(Json.toJson(categories))
   }
@@ -29,7 +32,7 @@ class CategoryController @Inject()(val controllerComponents: ControllerComponent
   def getById(id: Long): Action[AnyContent] = Action {
     categories.find(_.id == id) match {
       case Some(category) => Ok(Json.toJson(category))
-      case None => NotFound(Json.obj("error" -> "not found"))
+      case None => NotFound(Json.obj("error" -> NotFoundMessage))
     }
   }
 
@@ -51,7 +54,7 @@ class CategoryController @Inject()(val controllerComponents: ControllerComponent
     request.body.validate[Category] match {
       case JsSuccess(updatedCategory, _) =>
         categories.indexWhere(_.id == id) match {
-          case -1 => NotFound(Json.obj("error" -> "not found"))
+          case -1 => NotFound(Json.obj("error" -> NotFoundMessage))
           case index =>
             categories(index) = updatedCategory
             Ok(Json.toJson(updatedCategory))
@@ -63,7 +66,7 @@ class CategoryController @Inject()(val controllerComponents: ControllerComponent
   
   def delete (id: Long): Action[AnyContent] = Action {
     categories.indexWhere(_.id == id) match {
-      case -1 => NotFound(Json.obj("error" -> "not found"))
+      case -1 => NotFound(Json.obj("error" -> NotFoundMessage))
       case index =>
         categories.remove(index)
         Ok(Json.obj("message" -> "deleted"))

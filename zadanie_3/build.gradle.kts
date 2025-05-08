@@ -1,5 +1,11 @@
 val kotlin_version: String by project
 val logback_version: String by project
+val ktor_version = "2.3.5"
+val ktor_serialization_version = "2.3.0"
+val telegrambots_version = "6.7.0"
+val logback_version = "1.2.11"
+val kotlin_version = "1.9.0"
+
 
 plugins {
     kotlin("jvm") version "2.1.20"
@@ -23,19 +29,19 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-core-jvm")
-    implementation("io.ktor:ktor-server-netty")
-    implementation("io.ktor:ktor-server-config-yaml")
+    implementation("io.ktor:ktor-server-core-jvm:$ktor_version")
+    implementation("io.ktor:ktor-server-netty:$ktor_version")
+    implementation("io.ktor:ktor-server-config-yaml:$ktor_version")
 
     implementation("ch.qos.logback:logback-classic:$logback_version")
-    implementation("io.ktor:ktor-server-core")
-    implementation("io.ktor:ktor-client-core:2.3.5")
-    implementation("io.ktor:ktor-client-cio:2.3.5")
-    implementation("io.ktor:ktor-client-content-negotiation:2.3.5")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.0")
-    implementation("io.ktor:ktor-client-websockets:2.3.5")
+    implementation("io.ktor:ktor-server-core:$ktor_version")
+    implementation("io.ktor:ktor-client-core:$ktor_version")
+    implementation("io.ktor:ktor-client-cio:$ktor_version")
+    implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_serialization_version")
+    implementation("io.ktor:ktor-client-websockets:$ktor_version")
 
-    implementation("org.telegram:telegrambots:6.7.0")
+    implementation("org.telegram:telegrambots:$telegrambots_version")
 
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }

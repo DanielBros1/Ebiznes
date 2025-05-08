@@ -22,6 +22,9 @@ class CartController @Inject()(val controllerComponents: ControllerComponents) e
     Cart(3, "Cart 3", "Description 3")
   )
 
+  private val NotFoundMessage = "not found"
+
+
   def getAll: Action[AnyContent] = Action {
     Ok(Json.toJson(carts))
   }
@@ -29,7 +32,7 @@ class CartController @Inject()(val controllerComponents: ControllerComponents) e
   def getById(id: Long): Action[AnyContent] = Action {
     carts.find(_.id == id) match {
       case Some(cart) => Ok(Json.toJson(cart))
-      case None => NotFound(Json.obj("error" -> "not found"))
+      case None => NotFound(Json.obj("error" -> NotFoundMessage))
     }
   }
 
@@ -51,7 +54,7 @@ class CartController @Inject()(val controllerComponents: ControllerComponents) e
     request.body.validate[Cart] match {
       case JsSuccess(updatedCart, _) =>
         carts.indexWhere(_.id == id) match {
-          case -1 => NotFound(Json.obj("error" -> "not found"))
+          case -1 => NotFound(Json.obj("error" -> NotFoundMessage))
           case index =>
             carts(index) = updatedCart
             Ok(Json.toJson(updatedCart))
@@ -63,7 +66,7 @@ class CartController @Inject()(val controllerComponents: ControllerComponents) e
 
   def delete(id: Long): Action[AnyContent] = Action {
     carts.indexWhere(_.id == id) match {
-      case -1 => NotFound(Json.obj("error" -> "not found"))
+      case -1 => NotFound(Json.obj("error" -> NotFoundMessage))
       case index =>
         carts.remove(index)
         Ok(Json.obj("message" -> "deleted"))

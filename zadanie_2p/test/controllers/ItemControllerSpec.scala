@@ -13,6 +13,9 @@ import play.api.test.Helpers._
  */
 class ItemControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting {
 
+  val welcomeMessage = "Welcome to Play"
+  val ContentTypeHtml = "text/html"
+
   "HomeController GET" should {
 
     "render the index page from a new instance of controller" in {
@@ -20,8 +23,8 @@ class ItemControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
       val home = controller.index().apply(FakeRequest(GET, "/"))
 
       status(home) mustBe OK
-      contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("Welcome to Play")
+      contentType(home) mustBe Some(ContentTypeHtml)
+      contentAsString(home) must include (welcomeMessage)
     }
 
     "render the index page from the application" in {
@@ -29,8 +32,8 @@ class ItemControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
       val home = controller.index().apply(FakeRequest(GET, "/"))
 
       status(home) mustBe OK
-      contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("Welcome to Play")
+      contentType(home) mustBe Some(ContentTypeHtml)
+      contentAsString(home) must include (welcomeMessage)
     }
 
     "render the index page from the router" in {
@@ -38,8 +41,8 @@ class ItemControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
       val home = route(app, request).get
 
       status(home) mustBe OK
-      contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("Welcome to Play")
+      contentType(home) mustBe Some(ContentTypeHtml)
+      contentAsString(home) must include (welcomeMessage)
     }
   }
 }
