@@ -1,0 +1,4 @@
+sonar.projectKey=DanielBros1_Ebiznes
+sonar.organization=your_org
+sonar.host.url=https://sonarcloud.io
+sonar.login=${env.SONAR_TOKEN}

@@ -65,14 +65,14 @@ describe('Testy jednostkowe komponentów', () => {
                 expect(screen.getByText(new RegExp(prod.name, 'i'))).toBeInTheDocument();
             });
             const productItems = screen.getAllByRole('listitem');
-            expect(productItems.length).toBe(sampleCart.length);0
+            expect(productItems.length).toBe(sampleCart.length);
 
             // Sprawdzenie przycisku czyszczenia koszyka
             const clearButton = screen.getByRole('button', { name: /wyczyść koszyk/i });
-            expect(clearButton).toBeInTheDocument();1
+            expect(clearButton).toBeInTheDocument();
 
             fireEvent.click(clearButton);
-            expect(setCartMock).toHaveBeenCalledTimes(1);2
+            expect(setCartMock).toHaveBeenCalledTimes(1);
         });
     });
 
@@ -86,22 +86,22 @@ describe('Testy jednostkowe komponentów', () => {
             renderWithRouter(<Payment />);
 
             // Sprawdzenie widoczności nagłówka oraz przycisku
-            expect(screen.getByText(/płatności/i)).toBeInTheDocument();3
+            expect(screen.getByText(/płatności/i)).toBeInTheDocument();
             const payButton = screen.getByRole('button', { name: /zatwierdź płatność/i });
-            expect(payButton).toBeInTheDocument();4
+            expect(payButton).toBeInTheDocument();
 
 
             fireEvent.click(payButton);
             setTimeout(() => {
-                expect(screen.getByText(/total/i)).toBeInTheDocument();5
+                expect(screen.getByText(/total/i)).toBeInTheDocument();
             }, 500);
 
-            expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();6
+            expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
 
-            expect(cartData).toBeInstanceOf(Array);7
-            expect(cartData[0]).toHaveProperty('price');8
-            expect(typeof cartData[0].price).toBe('number');9
-            expect(cartData.length).toBeGreaterThan(0);0
+            expect(cartData).toBeInstanceOf(Array);
+            expect(cartData[0]).toHaveProperty('price');
+            expect(typeof cartData[0].price).toBe('number');
+            expect(cartData.length).toBeGreaterThan(0);
         });
     });
 
@@ -109,15 +109,15 @@ describe('Testy jednostkowe komponentów', () => {
     it('Dodatkowe asercje łączące komponenty', () => {
         // Proste testy wraz z dodatkowymi sprawdzeniami
         const dummy = { a: 1, b: 2 };
-        expect(dummy).toHaveProperty('a');1
-        expect(dummy.a).toEqual(1);2
-        expect(dummy).toMatchObject({ b: 2 });3
-        expect(Array.isArray([])).toBe(true);4
-        expect('sklep').toMatch(/sklep/i);5
-        expect(5 + 3).toEqual(8);6
-        expect(true).toBe(true);7
-        expect(false).not.toBe(true);8
-        expect('react').not.toBeNull();9
-        expect(!null).toBe(true);0
+        expect(dummy).toHaveProperty('a');
+        expect(dummy.a).toEqual(1);
+        expect(dummy).toMatchObject({ b: 2 });
+        expect(Array.isArray([])).toBe(true);
+        expect('sklep').toMatch(/sklep/i);
+        expect(5 + 3).toEqual(8);
+        expect(true).toBe(true);
+        expect(false).not.toBe(true);
+        expect('react').not.toBeNull();
+        expect(true).toBe(true);
     });
 });

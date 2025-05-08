@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Linter - Hook Git dla zadania 7 - Sonar
+
+echo "============================================"
+echo "       Weryfikacja jakości kodu Sonar       "
+echo "============================================"
+
+if [ ! -f "sonar-project.properties" ]; then
+    echo "Brak pliku konfiguracyjnego sonar-project.properties"
+    exit 1
+fi
+
+# 2. zmienne środowiskowe
+if [ -z "$SONAR_TOKEN" ]; then
+    echo "Brak zmiennej środowiskowej SONAR_TOKEN"
+    echo "Dodaj do ~/.bashrc lub ~/.zshrc:"
+    echo "export SONAR_TOKEN='your_token'"
+    exit 1
+fi
+
+# 3. Uruchomienie analizy SonarQube
+echo "Uruchamianie analizy SonarQube..."
+sonar-scanner
