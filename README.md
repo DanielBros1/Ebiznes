@@ -18,6 +18,7 @@ przez CMD oraz gradle
 Link do obrazu: https://hub.docker.com/r/danielbros/zadanie1
 
 Kod: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_1
+# 
 
 ### Zadanie 2: Scala
 ✅ 3.0 Należy stworzyć kontroler do Produktów
@@ -31,6 +32,7 @@ Kod: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_1
 ✅ 5.0 Należy dodać konfigurację CORS dla dwóch hostów dla metod CRUD
 
 Kod: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_2p
+#
 
 ### Zadanie 3: Kotlin
 ✅ 3.0 Należy stworzyć aplikację kliencką w Kotlinie we frameworku Ktor, która pozwala na przesyłanie wiadomości na platformę Discord
@@ -44,6 +46,8 @@ Kod: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_2p
 ✅ 5.0 Aplikacja obsłuży dodatkowo jedną z platform: Slack, Messenger, Webex
 
 Kod: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_3
+#
+
 
 ### Zadanie 4: GO
 ✅ 3.0 Należy stworzyć aplikację we frameworki echo w j. Go, która będzie miała kontroler Produktów zgodny z CRUD
@@ -60,6 +64,7 @@ a produktem
 ✅ 5.0 pogrupować zapytania w gorm’owe scope'y
 
 KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_4
+#
 
 ### Zadanie 5: Frontend
 ✅ 3.0 W ramach projektu należy stworzyć dwa komponenty: Produkty oraz Płatności; Płatności powinny wysyłać do aplikacji serwerowej dane, a w Produktach powinniśmy pobierać dane o produktach z aplikacji serwerowej;
@@ -72,8 +77,10 @@ KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_4
 
 ✅ 5.0 Należy wykorzystać axios’a oraz dodać nagłówki pod CORS
 
+KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_5
+#
+
 ### Zadanie 6: Testy
-KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_6
 
 ✅  3.0 Należy stworzyć 20 przypadków testowych w CypressJS lub Selenium
 (Kotlin, Python, Java, JS, Go, Scala)
@@ -86,9 +93,11 @@ KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_6
 
 ❌  5.0 Należy uruchomić testy funkcjonalne na Browserstacku
 
+KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_5/server/src/test/kotlin/org/example/server <br>
+KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_5/client/cypress
+
 
 ### Zadanie 7: Sonar
-KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_7
 
 ❌ 3.0 Należy dodać litera do odpowiedniego kodu aplikacji serwerowej w  hookach gita
 
@@ -99,3 +108,5 @@ KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_7
 ❌ 4.5 Należy wyeliminować wszystkie podatności oraz błędy bezpieczeństwa w kodzie w Sonarze (kod aplikacji serwerowej)
 
 ❌ 5.0 Należy wyeliminować wszystkie błędy oraz zapaszki w kodzie aplikacji klienckiej
+
+KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_7
