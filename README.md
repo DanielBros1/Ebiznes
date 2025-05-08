@@ -82,31 +82,43 @@ KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_5
 
 ### Zadanie 6: Testy
 
-✅  3.0 Należy stworzyć 20 przypadków testowych w CypressJS lub Selenium
+✅ 3.0 Należy stworzyć 20 przypadków testowych w CypressJS lub Selenium
 (Kotlin, Python, Java, JS, Go, Scala)
 
-✅  3.5 Należy rozszerzyć testy funkcjonalne, aby zawierały minimum 50 asercji
+✅ 3.5 Należy rozszerzyć testy funkcjonalne, aby zawierały minimum 50 asercji
 
-✅  4.0 Należy stworzyć testy jednostkowe do wybranego wcześniejszego projektu z minimum 50 asercjami
+✅ 4.0 Należy stworzyć testy jednostkowe do wybranego wcześniejszego projektu z minimum 50 asercjami
 
-✅  4.5 Należy dodać testy API, należy pokryć wszystkie endpointy z minimum jednym scenariuszem negatywnym per endpoint
+✅ 4.5 Należy dodać testy API, należy pokryć wszystkie endpointy z minimum jednym scenariuszem negatywnym per endpoint
 
-❌  5.0 Należy uruchomić testy funkcjonalne na Browserstacku
+❌ 5.0 Należy uruchomić testy funkcjonalne na Browserstacku
 
 KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_5/server/src/test/kotlin/org/example/server <br>
 KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_5/client/cypress
-
+#
 
 ### Zadanie 7: Sonar
 
-❌ 3.0 Należy dodać litera do odpowiedniego kodu aplikacji serwerowej w  hookach gita
+✅ 3.0 Należy dodać litera do odpowiedniego kodu aplikacji serwerowej w  hookach gita
 
-❌ 3.5 Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod aplikacji serwerowej)
+✅ 3.5 Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod aplikacji serwerowej)
 
-❌ 4.0 Należy wyeliminować wszystkie zapaszki w kodzie w Sonarze (kod aplikacji serwerowej)
+✅ 4.0 Należy wyeliminować wszystkie zapaszki w kodzie w Sonarze (kod aplikacji serwerowej)
 
-❌ 4.5 Należy wyeliminować wszystkie podatności oraz błędy bezpieczeństwa w kodzie w Sonarze (kod aplikacji serwerowej)
+✅ 4.5 Należy wyeliminować wszystkie podatności oraz błędy bezpieczeństwa w kodzie w Sonarze (kod aplikacji serwerowej)
 
-❌ 5.0 Należy wyeliminować wszystkie błędy oraz zapaszki w kodzie aplikacji klienckiej
+✅ 5.0 Należy wyeliminować wszystkie błędy oraz zapaszki w kodzie aplikacji klienckiej
 
 KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_7
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DanielBros1_Ebiznes&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=DanielBros1_Ebiznes)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=DanielBros1_Ebiznes&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=DanielBros1_Ebiznes)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=DanielBros1_Ebiznes&metric=bugs)](https://sonarcloud.io/summary/new_code?id=DanielBros1_Ebiznes)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=DanielBros1_Ebiznes&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=DanielBros1_Ebiznes)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=DanielBros1_Ebiznes&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=DanielBros1_Ebiznes)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=DanielBros1_Ebiznes&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=DanielBros1_Ebiznes)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=DanielBros1_Ebiznes&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=DanielBros1_Ebiznes)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DanielBros1_Ebiznes&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=DanielBros1_Ebiznes)
+#
+
+
