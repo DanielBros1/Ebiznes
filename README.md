@@ -125,12 +125,12 @@ RECORDING (do zadania 5 i 6): https://github.com/DanielBros1/Ebiznes/blob/master
 
 ### Zadanie 8: Oauth2
 
-❌ 3.0 logowanie przez aplikację serwerową (bez Oauth2)
+✅ 3.0 logowanie przez aplikację serwerową (bez Oauth2)
 
-❌ 3.5 rejestracja przez aplikację serwerową (bez Oauth2)
+✅ 3.5 rejestracja przez aplikację serwerową (bez Oauth2)
 
-❌ 4.0 logowanie via Google OAuth2
+✅ 4.0 logowanie via Google OAuth2
 
-❌ 4.5 logowanie via Facebook lub Github OAuth2
+✅ 4.5 logowanie via Facebook lub Github OAuth2
 
-❌ 5.0 zapisywanie danych logowania OAuth2 po stronie serwera
+✅ 5.0 zapisywanie danych logowania OAuth2 po stronie serwera
