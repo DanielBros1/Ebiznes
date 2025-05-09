@@ -94,7 +94,10 @@ KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_5
 ❌ 5.0 Należy uruchomić testy funkcjonalne na Browserstacku
 
 KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_5/server/src/test/kotlin/org/example/server <br>
-KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_5/client/cypress
+KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_5/client/cypress <br>
+RECORDING (do zadania 5 i 6): https://github.com/DanielBros1/Ebiznes/blob/master/recordings/ebiznes_6.wmv
+
+
 #
 
 ### Zadanie 7: Sonar
@@ -109,7 +112,6 @@ KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_5/client/cypress
 
 ✅ 5.0 Należy wyeliminować wszystkie błędy oraz zapaszki w kodzie aplikacji klienckiej
 
-KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_7
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DanielBros1_Ebiznes&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=DanielBros1_Ebiznes)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=DanielBros1_Ebiznes&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=DanielBros1_Ebiznes)
@@ -121,4 +123,14 @@ KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_7
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DanielBros1_Ebiznes&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=DanielBros1_Ebiznes)
 #
 
+### Zadanie 8: Oauth2
 
+❌ 3.0 logowanie przez aplikację serwerową (bez Oauth2)
+
+❌ 3.5 rejestracja przez aplikację serwerową (bez Oauth2)
+
+❌ 4.0 logowanie via Google OAuth2
+
+❌ 4.5 logowanie via Facebook lub Github OAuth2
+
+❌ 5.0 zapisywanie danych logowania OAuth2 po stronie serwera
