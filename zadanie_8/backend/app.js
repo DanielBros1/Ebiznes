@@ -6,6 +6,8 @@ const authRoutes = require('./routes/auth');
 require('./config/passport');
 
 const app = express();
+app.disable('x-powered-by');
+
 app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
 app.use(passport.initialize());
 app.use('/auth', authRoutes);
