@@ -139,3 +139,4 @@ RECORDING (do zadania 5 i 6): https://github.com/DanielBros1/Ebiznes/blob/master
 
 KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_8 <br>
 RECORDING (do zadania 8): https://github.com/DanielBros1/Ebiznes/blob/master/recordings/ebiznes_8.wmv
+RECORDING (do zadania 8): https://github.com/DanielBros1/Ebiznes/blob/master/recordings/ebiznes_8_1.mp4

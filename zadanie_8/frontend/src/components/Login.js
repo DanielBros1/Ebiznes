@@ -20,6 +20,9 @@ const Login = () => {
             <br /><br />
 
             <button onClick={() => navigate('/login')}>Logowanie e-mail/hasło</button>
+            <br /><br />
+            <button onClick={() => navigate('/register')}>Rejestracja</button>
+            <br /><br />
         </div>
     );
 };
