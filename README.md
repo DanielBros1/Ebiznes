@@ -140,3 +140,24 @@ RECORDING (do zadania 5 i 6): https://github.com/DanielBros1/Ebiznes/blob/master
 KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_8 <br>
 RECORDING (do zadania 8): https://github.com/DanielBros1/Ebiznes/blob/master/recordings/ebiznes_8.wmv
 RECORDING (do zadania 8): https://github.com/DanielBros1/Ebiznes/blob/master/recordings/ebiznes_8_1.mp4
+
+#
+
+### Zadanie 9: ChatGPT bot
+
+❌ 3.0 należy stworzyć po stronie serwerowej osobny serwis do łącznia z
+chatGPT do usługi chat
+
+❌ 3.5 należy stworzyć interfejs frontowy dla użytkownika, który
+komunikuje się z serwisem; odpowiedzi powinny być wysyałen do
+frontendowego interfejsu
+
+❌ 4.0 stworzyć listę 5 różnych otwarć oraz zamknięć rozmowy
+
+❌ 4.5 filtrowanie po zagadnieniach związanych ze sklepem (np.
+ograniczenie się jedynie do ubrań oraz samego sklepu) do GPT
+
+❌ 5.0 filtrowanie odpowiedzi po sentymencie
+
+
+KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_9 <br>
