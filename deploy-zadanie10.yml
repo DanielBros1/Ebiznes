@@ -1,0 +1,60 @@
+name: Deploy Zadanie 5
+
+on:
+  push:
+    paths:
+      - 'zadanie_5/**'
+      - '.github/workflows/deploy_zadanie_5.yml'
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build backend image
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/zad5-backend ./zadanie_5/server
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/zad5-backend
+
+      - name: Build frontend image
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/zad5-frontend ./zadanie_5/client
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/zad5-frontend
+
+      - name: Deploy backend to Azure
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: zad5-backend-app
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_BACKEND }}
+          images: '${{ secrets.DOCKERHUB_USERNAME }}/zad5-backend'
+
+      - name: Deploy frontend to Azure
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: zad5-frontend-app
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FRONTEND }}
+          images: '${{ secrets.DOCKERHUB_USERNAME }}/zad5-frontend'
+
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Zadanie 5 zdeployowane!
+          to: danielbros@student.uj.edu.pl
+          from: GitHub Actions <${{ secrets.EMAIL_USERNAME }}>
+          body: |
+            Zadanie 5 (frontend + backend) zostało zbudowane i zdeployowane poprawnie!
