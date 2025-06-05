@@ -40,5 +40,5 @@ def generate_chat_response(user_input: str) -> str:
         full_text = generated[0]['generated_text']
         response = full_text.replace(prompt, "").strip()
         return response.split(".")[0] + "."
-    except Exception as e:
+    except Exception:
         return "Wystąpił błąd podczas generowania odpowiedzi."
