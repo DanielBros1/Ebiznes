@@ -10,13 +10,13 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Build and push backend image
-        run: docker build ./Ebiznes/zadanie_5/server
+      - name: Build backend image
+        run: docker build -t backend:latest ./zadanie_5/server
 
-      - name: Build and push frontend image
-        run: docker build ./Ebiznes/zadanie_5/client
+      - name: Build frontend image
+        run: docker build -t frontend:latest ./zadanie_5/client
 
       - name: Trigger backend deploy on Render
         run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_BACKEND }}
