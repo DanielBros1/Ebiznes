@@ -1,39 +1,39 @@
-name: Build and Deploy Frontend & Backend
-
-on:
-  push:
-    branches: [master]
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Build backend image
-        run: docker build -t backend:latest ./zadanie_5/server
-
-      - name: Build frontend image
-        run: docker build -t frontend:latest ./zadanie_5/client
-
-      - name: Trigger backend deploy on Render
-        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_BACKEND }}
-
-      - name: Trigger frontend deploy on Render
-        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_FRONTEND }}
-
-      - name: Send email notification
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: Zadanie 5 zdeployowane!
-          to: Daniel.bros@student.uj.edu.pl
-          from: GitHub Actions <${{ secrets.EMAIL_USERNAME }}>
-          body: |
-            Zadanie 10 (frontend + backend) zostało zbudowane i zdeployowane poprawnie na Render.com!
-  
+#name: Build and Deploy Frontend & Backend
+#
+#on:
+#  push:
+#    branches: [master]
+#
+#jobs:
+#  build-and-deploy:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v4
+#
+#      - name: Build backend image
+#        run: docker build -t backend:latest ./zadanie_5/server
+#
+#      - name: Build frontend image
+#        run: docker build -t frontend:latest ./zadanie_5/client
+#
+#      - name: Trigger backend deploy on Render
+#        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_BACKEND }}
+#
+#      - name: Trigger frontend deploy on Render
+#        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_FRONTEND }}
+#
+#      - name: Send email notification
+#        uses: dawidd6/action-send-mail@v3
+#        with:
+#          server_address: smtp.gmail.com
+#          server_port: 465
+#          username: ${{ secrets.EMAIL_USERNAME }}
+#          password: ${{ secrets.EMAIL_PASSWORD }}
+#          subject: Zadanie 5 zdeployowane!
+#          to: Daniel.bros@student.uj.edu.pl
+#          from: GitHub Actions <${{ secrets.EMAIL_USERNAME }}>
+#          body: |
+#            Zadanie 10 (frontend + backend) zostało zbudowane i zdeployowane poprawnie na Render.com!
+#
