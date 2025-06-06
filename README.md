@@ -163,3 +163,16 @@ ograniczenie się jedynie do ubrań oraz samego sklepu) do GPT
 KOD: https://github.com/DanielBros1/Ebiznes/tree/master/zadanie_9 <br>
 RECORDING (do zadania 9): https://github.com/DanielBros1/Ebiznes/blob/master/recordings/ebiznes_9.wmv
 
+#
+
+### Zadanie 10 Chmura/CI
+
+✅ 3.0 Należy stworzyć odpowiednie instancje po stronie chmury na dockerze
+
+✅ 3.5 Stworzyć odpowiedni pipeline w Github Actions do budowania aplikacji (np. via fatjar)
+
+✅ 4.0 Dodać notyfikację mailową o zbudowaniu aplikacji
+
+✅ 4.5 Dodać krok z deploymentem aplikacji serwerowej oraz klienckiej na chmurę
+
+❌ 5.0 Dodać uruchomienie regresyjnych testów automatycznych(funkcjonalnych) jako krok w Actions
