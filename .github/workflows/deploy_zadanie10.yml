@@ -32,7 +32,7 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: Zadanie 5 zdeployowane!
-          to: Daniel.bros@student.uj.edu.pl
+          to: ${{ secrets.MAIL_RECIPIENT }}
           from: GitHub Actions <${{ secrets.EMAIL_USERNAME }}>
           body: |
             Zadanie 10 (frontend + backend) zostało zbudowane i zdeployowane poprawnie na Render.com!
